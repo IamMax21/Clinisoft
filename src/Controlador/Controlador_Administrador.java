@@ -115,8 +115,7 @@ public class Controlador_Administrador implements ActionListener {
     }
     public void editar(String tipoUsuario){
         if (tipoUsuario.equals("Paciente")) {
-            JOptionPane.showMessageDialog(null, "Presionaste Editar Paciente");
-            
+                       
             //Guardamos el index de la fila seleccionada
             int Fila_Seleccionada = VistaAdmin.TABLA_PACIENTES.getSelectedRow();
 
@@ -142,7 +141,7 @@ public class Controlador_Administrador implements ActionListener {
             VistaAdmin.txtTELEFONO_MEDICO.setText(VistaAdmin.TABLA_MEDICOS.getModel().getValueAt(Fila_Seleccionada, 5).toString());
         }
         if (tipoUsuario.equals("Medicamento")) {
-            JOptionPane.showMessageDialog(null, "Presionaste Editar Medicamento");
+           
             //Guardamos el index de la fila seleccionada
             int Fila_Seleccionada = VistaAdmin.TABLA_MEDICAMENTOS.getSelectedRow();
             //Mandamos los textos de los registros de la tabla a los cuadros de texto
@@ -171,11 +170,11 @@ public class Controlador_Administrador implements ActionListener {
         Modelo_Paciente Paciente = new Modelo_Paciente();
         //Boton Agregar Paciente
         if (e.getSource()==VistaAdmin.btn_AGREGAR_PACIENTES) {
-            JOptionPane.showMessageDialog(null, "Presionaste Agregar Paciente");
+            
             
             //Verificando campos llenos
             if (verificaCampos("Paciente")==true) {
-                JOptionPane.showMessageDialog(null, "Pase el metodo de verificacion de campos vacios");
+                
                 
                 //Creacion de variables para los metodos posteriores
                 int cedula_nuevo=Integer.parseInt(VistaAdmin.txtCEDULA_PACIENTE.getText());
@@ -189,35 +188,35 @@ public class Controlador_Administrador implements ActionListener {
                 
                 //Verificando Existencia
                 Paciente = ModeloPacDAO.consultaExistencia(cedula_nuevo);
-                JOptionPane.showMessageDialog(null, "Este es el valor de paciente por el metodo de paciente DAO \n"+Paciente);
+                
                 
                 if (Paciente!=null) { //Si existe el paciente
-                   JOptionPane.showMessageDialog(null, "El paciente existe");
+                   JOptionPane.showMessageDialog(null, "El paciente ya existe");
                    
                     //Verificando Edición
                     int opcion_editar=JOptionPane.showConfirmDialog(null, "¿Dese modificar dicho registro?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
                         //Si, quiero editarlo
                         if (opcion_editar==JOptionPane.YES_OPTION) {
-                            JOptionPane.showMessageDialog(null, "Escogiste que si");
+                            //JOptionPane.showMessageDialog(null, "Escogiste que si");
                             //Borrando
-                            JOptionPane.showMessageDialog(null, "Entrando a borrar");
+                            //JOptionPane.showMessageDialog(null, "Entrando a borrar");
                             Paciente=ModeloPacDAO.eliminar(cedula_nuevo);
                             cargarPacientes();
                             //Agregando
-                            JOptionPane.showMessageDialog(null, "Agregando el registro");
+                            //JOptionPane.showMessageDialog(null, "Agregando el registro");
                             Paciente=ModeloPacDAO.agregar(cedula_nuevo, nombre_nuevo, apellido_nuevo, contraseña_nuevo, nacimiento_nuevo, estado_nuevo, enfermedad_nuevo);
                             cargarPacientes();
                         }
 
                         //No, no quiero editarlo
                         if (opcion_editar==JOptionPane.NO_OPTION) {
-                            JOptionPane.showMessageDialog(null, "Escogiste que no");
+                            //JOptionPane.showMessageDialog(null, "Escogiste que no");
                         }
                 }
 
                 else if (Paciente==null) { //No existe el paciente
-                    JOptionPane.showMessageDialog(null, "El paciente NO existe");
-                    JOptionPane.showMessageDialog(null, "Agregando el registro");
+                    //JOptionPane.showMessageDialog(null, "El paciente NO existe");
+                    //JOptionPane.showMessageDialog(null, "Agregando el registro");
                     Paciente=ModeloPacDAO.agregar(cedula_nuevo, nombre_nuevo, apellido_nuevo, contraseña_nuevo, nacimiento_nuevo, estado_nuevo, enfermedad_nuevo);
                     cargarPacientes();
                 }
@@ -247,11 +246,11 @@ public class Controlador_Administrador implements ActionListener {
         
         //Boton Agregar Medicos
         if (e.getSource()==VistaAdmin.btnAGREGAR_MEDICO) {
-            JOptionPane.showMessageDialog(null, "Presionaste Agregar Medico");
+            
             
                 //Verificando campos llenos
             if (verificaCampos("Medico")==true) {
-                JOptionPane.showMessageDialog(null, "Pase el metodo de verificacion de campos vacios");
+                
 
                 //Creacion de variables para los metodos posteriores
                 int idmedico_nuevo=Integer.parseInt(VistaAdmin.txtID_MEDICO.getText());
@@ -263,35 +262,35 @@ public class Controlador_Administrador implements ActionListener {
 
                 //Verificando Existencia
                 Medico = ModeloMedDAO.consultaExistencia(idmedico_nuevo);
-                JOptionPane.showMessageDialog(null, "Este es el valor de medico por el metodo de medico DAO \n"+Medico);
+                
 
                 if (Medico!=null) { //Si existe el medico
-                   JOptionPane.showMessageDialog(null, "El medico existe");
+                   JOptionPane.showMessageDialog(null, "El medico ya existe");
 
                     //Verificando Edición
                     int opcion_editar=JOptionPane.showConfirmDialog(null, "¿Dese modificar dicho registro?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
                         //Si, quiero editarlo
                         if (opcion_editar==JOptionPane.YES_OPTION) {
-                            JOptionPane.showMessageDialog(null, "Escogiste que si");
+                            //JOptionPane.showMessageDialog(null, "Escogiste que si");
                             //Borrando
-                            JOptionPane.showMessageDialog(null, "Entrando a borrar");
+                            //JOptionPane.showMessageDialog(null, "Entrando a borrar");
                             Medico=ModeloMedDAO.eliminar(idmedico_nuevo);
                             
                             //Agregando
-                            JOptionPane.showMessageDialog(null, "Agregando el registro");
+                            //JOptionPane.showMessageDialog(null, "Agregando el registro");
                             Medico=ModeloMedDAO.agregar(idmedico_nuevo, cedula_nuevo, nombre_nuevo, apellido_nuevo, contraseña_nuevo, telefono_nuevo);
                             cargarMedicos();
                         }
 
                         //No, no quiero editarlo
                         if (opcion_editar==JOptionPane.NO_OPTION) {
-                            JOptionPane.showMessageDialog(null, "Escogiste que no");
+                            //JOptionPane.showMessageDialog(null, "Escogiste que no");
                         }
                 }
 
                 else if (Medico==null) { //No existe el medico
-                    JOptionPane.showMessageDialog(null, "El medico NO existe");
-                    JOptionPane.showMessageDialog(null, "Agregando el registro");
+                    //JOptionPane.showMessageDialog(null, "El medico NO existe");
+                    //JOptionPane.showMessageDialog(null, "Agregando el registro");
                     Medico=ModeloMedDAO.agregar(idmedico_nuevo, cedula_nuevo, nombre_nuevo, apellido_nuevo, contraseña_nuevo, telefono_nuevo);
                     cargarMedicos();
                 }
@@ -322,11 +321,11 @@ public class Controlador_Administrador implements ActionListener {
     
         //Boton Agregar Medicamentos
         if (e.getSource()==VistaAdmin.btnAGREGAR_MEDICAMENTO) {
-            JOptionPane.showMessageDialog(null, "Presionaste Agregar Medicamento");
+            
             
             //Verificando campos llenos
             if (verificaCampos("Medicamento")==true) {
-                JOptionPane.showMessageDialog(null, "Pase el metodo de verificacion de campos vacios");
+                
                 
                 //Creacion de variables para los metodos posteriores
                 int idmedicamento_nuevo=Integer.parseInt(VistaAdmin.txt_IDMEDICAMENTO.getText());
@@ -335,35 +334,35 @@ public class Controlador_Administrador implements ActionListener {
 
                 //Verificando Existencia
                 Medicamento = ModeloMedicamDAO.consultaExistencia(idmedicamento_nuevo);
-                JOptionPane.showMessageDialog(null, "Este es el valor de medicamento por el metodo de medicamento DAO \n"+Medicamento);
+                
 
                 if (Medicamento!=null) { //Si existe el medicamento
-                   JOptionPane.showMessageDialog(null, "El medico existe");
+                   JOptionPane.showMessageDialog(null, "El medicamento ya existe");
 
                     //Verificando Edición
                     int opcion_editar=JOptionPane.showConfirmDialog(null, "¿Dese modificar dicho registro?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
                         //Si, quiero editarlo
                         if (opcion_editar==JOptionPane.YES_OPTION) {
-                            JOptionPane.showMessageDialog(null, "Escogiste que si");
+                            //JOptionPane.showMessageDialog(null, "Escogiste que si");
                             //Borrando
-                            JOptionPane.showMessageDialog(null, "Entrando a borrar");
+                            //JOptionPane.showMessageDialog(null, "Entrando a borrar");
                             Medicamento=ModeloMedicamDAO.eliminar(idmedicamento_nuevo);
                             
                             //Agregando
-                            JOptionPane.showMessageDialog(null, "Agregando el registro");
+                            //JOptionPane.showMessageDialog(null, "Agregando el registro");
                             Medicamento=ModeloMedicamDAO.agregar(idmedicamento_nuevo, nombre_nuevo, laboratorio_nuevo);
                             cargarMedicamentos();
                         }
 
                         //No, no quiero editarlo
                         if (opcion_editar==JOptionPane.NO_OPTION) {
-                            JOptionPane.showMessageDialog(null, "Escogiste que no");
+                            //JOptionPane.showMessageDialog(null, "Escogiste que no");
                         }
                 }
 
                 else if (Medicamento==null) { //No existe el medico
-                    JOptionPane.showMessageDialog(null, "El medico NO existe");
-                    JOptionPane.showMessageDialog(null, "Agregando el registro");
+                    //JOptionPane.showMessageDialog(null, "El medicamento NO existe");
+                    //JOptionPane.showMessageDialog(null, "Agregando el registro");
                     Medicamento=ModeloMedicamDAO.agregar(idmedicamento_nuevo, nombre_nuevo, laboratorio_nuevo);
                     cargarMedicamentos();
                 }

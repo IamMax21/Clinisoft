@@ -95,7 +95,7 @@ public class Controlador_Login implements ActionListener{
             String contraseña = String.valueOf(VistaLog.txtPASS.getPassword());
             //Metodo de verificación
             Administrador=ModeloAdminDAO.verificaCredenciales(id, contraseña);
-            JOptionPane.showMessageDialog(null, Administrador);
+            //JOptionPane.showMessageDialog(null, Administrador);
             //Resultado de consulta
             if (Administrador==null) {
                 JOptionPane.showMessageDialog(null, "ID y/o Contraseña son incorrectos.");
@@ -119,7 +119,7 @@ public class Controlador_Login implements ActionListener{
             String contraseña = String.valueOf(VistaLog.txtPASS.getPassword());
             //Metodo de verificación
             Medico=ModeloMedDAO.verificaCredenciales(id, contraseña);
-            JOptionPane.showMessageDialog(null, Medico);
+            //JOptionPane.showMessageDialog(null, Medico);
             //Resultado de consulta
             if (Medico==null) {
                 JOptionPane.showMessageDialog(null, "ID y/o Contraseña son incorrectos.");
@@ -138,7 +138,7 @@ public class Controlador_Login implements ActionListener{
             String contraseña = String.valueOf(VistaLog.txtPASS.getPassword());
             
             Paciente=ModeloPacDAO.verificaCredenciales(cedula, contraseña);
-            JOptionPane.showMessageDialog(null, Paciente);
+            //JOptionPane.showMessageDialog(null, Paciente);
             
             if (Paciente==null) {
                 JOptionPane.showMessageDialog(null, "ID y/o Contraseña son incorrectos.");

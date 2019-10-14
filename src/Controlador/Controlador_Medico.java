@@ -107,7 +107,7 @@ public class Controlador_Medico implements ActionListener, KeyListener{
         if (e.getSource()==VistaMed.BTN_AGREGAR_DATOS_PACIENTE2) {
             //Verificando campos llenos
             if (verificaCampos()==true) {
-                JOptionPane.showMessageDialog(null, "Pase el metodo de verificacion de campos vacios");
+                
                 String cedula_nueva=VistaMed.LBL_CEDULA_PACIENTE_EN_MEDICO.getText();
                 String nombres_nuevo=VistaMed.LBL_NOMBRE_PACIENTE_EN_MEDICO.getText();
                 String apellidos_nuevo=VistaMed.LBL_APELLIDO_PACIENTE_EN_MEDICO.getText();

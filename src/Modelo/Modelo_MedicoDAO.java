@@ -106,7 +106,7 @@ public class Modelo_MedicoDAO {
         Modelo_Medico Medico = new Modelo_Medico();
         //Sentecia para borrar el registro
         String SQL_BORRAR_REGISTRO="DELETE FROM `medicos` WHERE (idmedico = "+id+");";
-        JOptionPane.showMessageDialog(null, "El ID de médico a buscar es: "+id);
+        //JOptionPane.showMessageDialog(null, "El ID de médico a buscar es: "+id);
         Connection accesoBD = con.getConnection();
         try {
             Statement st = accesoBD.createStatement();
