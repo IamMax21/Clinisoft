@@ -74,7 +74,7 @@ public class Modelo_PacienteDAO {
         return paciente;
     }
     public Modelo_Paciente consultaExistencia (int id){
-        JOptionPane.showMessageDialog(null, "Entrando a consultaExistencia DAO");
+        //JOptionPane.showMessageDialog(null, "Entrando a consultaExistencia DAO");
         Modelo_Paciente Paciente = null;
             //Consulta SQL
             String SQL_BUSQUEDA_CEDULA= "select * from pacientes where cedula ="+id+";";
@@ -102,7 +102,7 @@ public class Modelo_PacienteDAO {
     public Modelo_Paciente eliminar (int id){
         Modelo_Paciente Paciente = new Modelo_Paciente();
             String SQL_BORRAR_REGISTRO="DELETE FROM `pacientes` WHERE (Cedula = "+id+");";
-            JOptionPane.showMessageDialog(null, "La cedula a buscar es: "+id);
+            //JOptionPane.showMessageDialog(null, "La cedula a buscar es: "+id);
             
             Connection accesoBD = con.getConnection();
             try {
